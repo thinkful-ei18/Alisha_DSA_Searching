@@ -181,11 +181,33 @@ Binary.insert(66, null);
 Binary.insert(90, null);
 Binary.insert(22, null);
 
-
 // console.log(util.inspect(Binary, false, null));
 
-const inOrder = tree => {
 
+const preOrder = tree => {
+  if (!tree) return 'This tree is empty!';
+
+  console.log(tree.key);
+
+  if (tree.left) {
+    preOrder(tree.left);
+  }
+
+  if (tree.right) {
+    preOrder(tree.right);
+  }
+
+  return;
+
+};
+
+console.log('pre order:');
+preOrder(Binary);
+console.log('');
+
+
+
+const inOrder = tree => {
   if (!tree) return 'This tree is empty!';
 
   if(tree.left) {
@@ -201,4 +223,27 @@ const inOrder = tree => {
   return;
 };
 
-console.log(inOrder(Binary));
+console.log('in order:');
+inOrder(Binary);
+console.log('');
+
+
+
+const postOrder = tree => {
+  if (!tree) return 'This tree is empty!';
+
+  if (tree.left) {
+    postOrder(tree.left);
+  }
+  
+  if (tree.right) {
+    postOrder(tree.right);
+  }
+
+  console.log(tree.key);
+
+  return;
+};
+
+console.log('post order:');
+postOrder(Binary);
